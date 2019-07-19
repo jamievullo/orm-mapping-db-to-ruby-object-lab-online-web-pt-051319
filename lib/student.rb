@@ -11,6 +11,15 @@ class Student
   end
 
   def self.all
+    sql <<-SQL
+      SELECT * FROM students 
+      WHERE grade = ? 
+      SQL
+      
+      DB[:conn].execute(sql, grade)
+      
+      
+      
     # retrieve all the rows from the "Students" database
     # remember each row should be a new instance of the Student class
   end
